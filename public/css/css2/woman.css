@@ -1,0 +1,221 @@
+
+/* .main_img{
+  position: relative;
+  min-width: 100%;
+  max-height: 450px;
+  aspect-ratio: 1 / 1;
+  -webkit-border-radius: var(--border-radius-md);
+          border-radius: var(--border-radius-md);
+  overflow: hidden;
+  scroll-snap-align: start;
+} */
+/* تنسيق الحاوية الرئيسية للبانر */
+.main_img {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق صورة الخلفية */
+.main_img .banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* تنسيق محتوى النصوص والأزرار فوق الصورة */
+.main_img .banner-content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 500px;
+  z-index: 2;
+}
+
+/* تنسيق العنوان الفرعي (Trending accessories) */
+.main_img .banner-subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ff8fab; /* لون وردي جذاب يتناسب مع التصميم */
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* تنسيق العنوان الرئيسي (Modern sunglasses) */
+.main_img .banner-title {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: black;
+}
+
+/* تنسيق النص التوضيحي والسعر */
+.main_img .banner-text {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: black;
+}
+
+.main_img .banner-text b {
+  font-size: 24px;
+  color: black;
+}
+
+/* تنسيق زر "Shop now" */
+.main_img .banner-btn {
+  display: inline-block;
+  background-color: #ff6b8b; /* لون وردي مميز للزر */
+  color: #ffffff;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main_img .banner-btn:hover {
+  background-color: #ff5277;
+  transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+/* تنسيق الحاوية الرئيسية (شبكة الكروت المتجاوبة) */
+.products-grid {
+  display: grid;
+  /* تقوم هذه الخاصية بترتيب الكروت تلقائياً وتغيير عددها حسب عرض الشاشة */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* تنسيق كارت المنتج الفردي */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* تأثير التمرير على الكارت */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* حاوية الصورة */
+.product-img-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+
+/* تنسيق الصورة بداخل الكارت */
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+/* شارة مميزة (مثل جديد أو تخفيض) */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #ff6b8b;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* محتوى الكارت (النصوص والأسعار) */
+.product-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* عنوان المنتج */
+.product-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* وصف المنتج */
+.product-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* تذييل الكارت (السعر وزر الشراء) */
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* تنسيق السعر */
+.product-price {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.product-price b {
+  font-size: 20px;
+  color: #ff6b8b;
+}
+
+/* زر "أضف للسلة" */
+.product-btn {
+  background-color: #2b2d42;
+  color: #ffffff;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.product-btn:hover {
+  background-color: #ff6b8b;
+}
