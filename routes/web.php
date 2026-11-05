@@ -37,14 +37,17 @@ Route::post('/password/reset', [ForgotPasswordController::class, 'reset'])->name
 });
 
 // the online store routes
+Route::middleware('auth')->group(function (){
 Route::get('/store', [OnlineStoreController::class, 'index'])->name('onlineStore');
-
 Route::get('/woman', [OnlineStoreController::class, 'woman'])->name('woman');
-
 Route::get('/man', [OnlineStoreController::class, 'man'])->name('man');
-
 Route::get('/Kids', [OnlineStoreController::class, 'Kids'])->name('Kids');
+});
 
+// the admain route
+
+Route::middleware(['auth', 'admain'])->group(function (){
 Route::get('/online/create', [OnlineStoreController::class, 'admain'])->name('admain');
-
 Route::post('/online/create', [OnlineStoreController::class, 'store'])->name('admain.store');
+Route::delete('/online/{store}', [OnlineStoreController::class, 'destroy'])->name('admain.destroy');
+});

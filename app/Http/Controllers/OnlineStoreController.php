@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\store;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -38,11 +37,16 @@ class OnlineStoreController extends Controller
 
     public function admain()
     {
+
         return view('OnlineStore.admain');
     }
 
     public function store(Request $request)
     {
+        $this->authorize('create', store::class);
+
+
+
         $validatedData = $request->validate([
             'category' => 'required|string|max:255',
             'name' => 'required|string|max:255',
@@ -60,4 +64,15 @@ class OnlineStoreController extends Controller
 
         return redirect()->route('onlineStore')->with('success', 'Product added successfully!');
     }
+
+
+ public function destroy($id)
+{
+    $product = Store::findOrFail($id);
+
+    $product->delete();
+
+    return back();
+}
+
 }

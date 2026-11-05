@@ -1,4 +1,3 @@
-
 @extends('layout.app')
 @section('hello')
 <!DOCTYPE html>
@@ -37,25 +36,31 @@
 
           <main>
 
-          @foreach($prodect as $products)
-<div class="products-grid">
+          <div class="products-grid">
+         @foreach ($prodect as $products)
+                <div class="product-card">
+                    <div class="product-img-container">
+                        <img src="{{ asset('storage/' . $products->image) }}" alt="Modern sunglasses" class="product-img">
+                        <span class="product-badge">new</span>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">{{ $products->name }}</h3>
+                        <p class="product-description">{{ $products->description }}</p>
+                        <div class="product-footer">
+                            <span class="product-price">{{ $products->price }}</span>
 
-    <!-- كارت المنتج الأول -->
-    <div class="product-card">
-        <div class="product-img-container">
-            <img src="{{ asset('storage/' . $products->image) }}" alt="Modern sunglasses" class="product-img">
-            <span class="product-badge">new</span>
-        </div>
-        <div class="product-content">
-            <h3 class="product-title">{{ $products->name }}</h3>
-            <p class="product-description">{{ $products->description }}</p>
-            <div class="product-footer">
-                <span class="product-price">{{ $products->price }}</span>
-                <a href="#" class="product-btn">أضف للسلة</a>
-            </div>
-        </div>
+                                @if(auth()->check() && auth()->user()->role =='admain')
+                            <form action="{{route('admain.destroy', $products->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="product-btn">Delete</button>
+                            </form>
+                          @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
     </div>
-@endforeach
 
           </main>
 

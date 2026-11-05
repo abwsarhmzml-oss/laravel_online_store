@@ -140,10 +140,11 @@
             </ul>
           </li>
 
-
+    @if(auth()->check() && auth()->user()->role =='admain')
           <li class="menu-category">
             <a href="{{ route('admain')}}" class="menu-title">admain</a>
          </li>
+         @endif
         </ul>
 
       </div>
